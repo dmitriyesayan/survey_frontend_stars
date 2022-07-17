@@ -1,6 +1,7 @@
 const track = document.querySelector('.carousel-track');
 const slides = Array.from(track.children);
 const button = document.querySelector('.carousel-btn');
+const carousel = document.querySelector('.carousel')
 const stars = document.querySelector(".stars");
 const starsArray = Array.from(stars.children);
 
@@ -14,7 +15,7 @@ const setSlidePosition = (slide, index) => {
 };
 slides.forEach(setSlidePosition);
 
-// Function to move the slides
+// Function to move the slides and replace the content with the done mark at the end
 const handleCarousel = () => {
   const currentSlide = track.querySelector('.current-slide');
 
@@ -29,6 +30,7 @@ const handleCarousel = () => {
   if (nextSlide === slides[slides.length-1]) {
     setTimeout(() => {
       button.disabled = true;
+      carousel.innerHTML = "\<img src=\"src/assets/images/img_control_tool_finish.svg\" alt=\"done\" class=\"done-icon\"\>";
     }, "600")
   }
 }
